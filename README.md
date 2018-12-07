@@ -33,3 +33,9 @@
 1. 使用谷歌爸爸最新一代跨平台框架 flutter 开发。
 2. 前期就简单的加加好友，单人聊天，开个群聊，只发送文字这样纸。
 3. 使用ws、http进行数据传递，使用设备码和手机号登陆，不麻烦的话再支持第三方登陆。
+
+### google 文档地址
+https://docs.google.com/document/d/1Cm3wB8Fvoc47MIjLHOuxT_ISAqLtDzApN7Pu3n1qxe8/edit
+
+### trello地址
+https://trello.com/b/n079Ow6n/chat
