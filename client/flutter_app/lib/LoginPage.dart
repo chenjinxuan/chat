@@ -1,16 +1,11 @@
+//作者：间歇性丶神经病患者
+//链接：https://www.jianshu.com/p/9ecfe2695e5e
+//來源：简书
+//简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
+
+
 import 'package:flutter/material.dart';
-
-void main() => runApp(new MyApp());
-
-class MyApp extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new MaterialApp(
-       home: new LoginPage()
-    );
-  }
-}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   var topBottomPadding = 4.0;
   var textTips = new TextStyle(fontSize: 16.0, color: Colors.black);
   var hintTips = new TextStyle(fontSize: 15.0, color: Colors.black26);
-  static const LOGO = "images/oschina.png";
+  static const LOGO = "images/golang.png";
 
   var _userPassController = new TextEditingController();
   var _userNameController = new TextEditingController();
@@ -92,7 +87,3 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-//作者：间歇性丶神经病患者
-//链接：https://www.jianshu.com/p/9ecfe2695e5e
-//來源：简书
-//简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
