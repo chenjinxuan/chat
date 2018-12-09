@@ -11,12 +11,16 @@ var Code = map[string]int16{
 	"centre_ping_req": 1001, //  ping
 	"centre_ping_ack": 1002, //  pong
 
-	"get_friend_list": 3001, //获取好友列表
-	"get_group_lis":   3002, //获取组列表
-	"get_group_info":  3003, //获取组成员信息
-	"single_chat":     3004, //个人聊天
-	"group_chat":      3005, //群聊
-
+	"get_friend_list_req": 3001, //获取好友列表
+	"get_friend_list_ack": 3002, //获取好友列表回复
+	"get_group_lis_req":   3003, //获取组列表
+	"get_group_lis_ack":   3004, //获取组列表
+	"get_group_info_req":  3005, //获取组成员信息
+	"get_group_info_ack":  3006, //获取组成员信息
+	"single_chat_req":     3007, //个人聊天
+	"single_chat_ack":     3008, //个人聊天
+	"group_chat_req":      3009, //群聊
+	"group_chat_ack":      3010, //群聊
 }
 
 var RCode = map[int16]string{
@@ -28,11 +32,17 @@ var RCode = map[int16]string{
 
 	1001: "centre_ping_req", //  ping
 	1002: "centre_ping_ack", //  pong
-	3001: "get_friend_list",
-	3002: "get_group_lis",
-	3003: "get_group_info",
-	3004: "single_chat",
-	3005: "group_chat",
+
+	3001: "get_friend_list_req",
+	3002: "get_friend_list_ack",
+	3003: "get_group_lis_req",
+	3004: "get_group_lis_ack",
+	3005: "get_group_info_req",
+	3006: "get_group_info_ack",
+	3007: "single_chat_req",
+	3008: "single_chat_ack",
+	3009: "group_chat_req",
+	3010: "group_chat_ack",
 }
 
 const (
