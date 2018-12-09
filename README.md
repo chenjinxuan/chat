@@ -39,3 +39,15 @@ https://docs.google.com/document/d/1Cm3wB8Fvoc47MIjLHOuxT_ISAqLtDzApN7Pu3n1qxe8/
 
 ### trello地址
 https://trello.com/b/n079Ow6n/chat
+
+
+### 包管理 govendor
+
+例子
+```
+  cd agent
+  govendor init
+  govendor add +external
+```
+
+注意: vendor 需要屏蔽,,不能提交git
