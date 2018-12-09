@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package proto;
+
+// 0,1 心跳包
+message AutoId{
+    int32 id = 1;
+}
+
+// 30,31 通信加密种子
+message SeedInfo{
+    int64 client_send_seed = 1;
+    int64 client_receive_seed = 2;
+}
+
+// 一般性回复payload
+message BaseAck{
+    int64 ret = 1; // 1代表成功
+    string msg = 2;
+}
+
+// 一般性请求payload
+message BaseReq{
+    string app_from = 1;
+    int32 app_ver = 2;
+}
+
+// 10, 用户登录
+message UserLoginReq{
+    BaseReq base_req = 1;
+    int64 user_id = 2;
+    string unique_id = 3;
+    string token = 4;
+    string connect_to = 5;
+    int64 is_reconnect = 6;  // 1重连  0正常登录
+}
+
+// 11, 用户登录回复
+message UserLoginAck{
+    BaseAck base_ack = 1;
+    string service_id = 2;
+}
+
+// 40, 用户踢出通知
+message KickedOutAck{
+    BaseAck base_ack = 1;
+}
+
+//用户信息
+message UserInfo {
+    int64 id =1;
+    string name=2;
+    bool is_online=3;
+}
+//群信息
+message GroupInfo {
+    int64 id = 1;
+    string name=2;
+    int64 total = 3;
+    int64 online=4;
+}
+
+//群信息
+message GroupDetail {
+    int64 id = 1;
+    repeated UserInfo members=2;
+}
+
+//3001 获取好友列表
+message GetFriendListReq {
+    BaseReq base_req=1;
+}
+
+message GetFriendListAck{
+    BaseAck base_ack =1;
+    repeated UserInfo members=2;
+}
+
+
+//3002 获取群组列表
+message GetGroupListReq {
+    BaseReq base_req=1;
+    repeated GroupInfo groups=2;
+}
+
+message getGroupListAck {
+    BaseAck base_ack=1;
+    repeated GroupInfo groups=2;
+}
+
+
+//3003 获取群成员列表
+message getGroupmembersReq {
+    BaseReq base_req=1;
+    int64 group=2;
+}
+message getGroupmembersAck {
+    BaseAck base_ack=1;
+    repeated UserInfo members=2;
+}
+
+//3004 个人聊天
+message SingleChatReq {
+    BaseReq base_req=1;
+    int64 to =2;
+    bytes msg=3;
+
+}
+
+//3005 群聊
+message GroupChatReq {
+    BaseReq Base_req=1;
+    int64 group =2;
+    bytes msg=3;
+    repeated int64 appoint =4;
+}
+//3006 语音聊天
+//3007 视频聊天
+
