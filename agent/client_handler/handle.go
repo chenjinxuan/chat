@@ -35,7 +35,7 @@ func P_heart_beat_req(sess *Session, data []byte) []byte {
 	return packet.Pack(Code["heart_beat_ack"], req)
 }
 
-// 玩家登陆过程
+// 登陆过程
 func P_user_login_req(sess *Session, data []byte) []byte {
 	req := &pb.UserLoginReq{}
 	err := proto.Unmarshal(data[2:], req)
@@ -99,7 +99,7 @@ func P_user_login_req(sess *Session, data []byte) []byte {
 	sess.Stream = stream
 	sess.GSID = serviceId
 
-	// 读取GAME返回消息的goroutine
+	// 读取chat返回消息的goroutine
 	fetcher_task := func(sess *Session) {
 		for {
 			in, err := sess.Stream.Recv()

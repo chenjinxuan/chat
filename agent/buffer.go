@@ -12,10 +12,10 @@ import (
 // PIPELINE #3: buffer
 // controls the packet sending for the client
 type Buffer struct {
-	ctrl    chan struct{} // receive exit signal
-	pending chan []byte   // pending packets
-	conn    *websocket.Conn      // connection
-	cache   []byte        // for combined syscall write
+	ctrl    chan struct{}   // receive exit signal
+	pending chan []byte     // pending packets
+	conn    *websocket.Conn // connection
+	cache   []byte          // for combined syscall write
 }
 
 // packet sending procedure
@@ -53,9 +53,9 @@ func (buf *Buffer) raw_send(data []byte) bool {
 	sz := len(data)
 	copy(buf.cache, data)
 	// write data
-	 err := buf.conn.WriteMessage(websocket.BinaryMessage,buf.cache[:sz])
+	err := buf.conn.WriteMessage(websocket.BinaryMessage, buf.cache[:sz])
 	if err != nil {
-		log.Warnf("Error send reply data, reason: %v",  err)
+		log.Warnf("Error send reply data, reason: %v", err)
 		return false
 	}
 

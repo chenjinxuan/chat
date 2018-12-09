@@ -101,7 +101,7 @@ func wsServer() {
 	}
 }
 
-func wsHandler(w http.ResponseWriter,r *http.Request) {
+func wsHandler(w http.ResponseWriter, r *http.Request) {
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Error("websocket connect error =>", err)
@@ -111,7 +111,6 @@ func wsHandler(w http.ResponseWriter,r *http.Request) {
 	handleClient(ws)
 }
 
-// | 2B size |     DATA       |
 func handleClient(conn *websocket.Conn) {
 	defer utils.PrintPanicStack()
 	defer conn.Close()
@@ -142,7 +141,7 @@ func handleClient(conn *websocket.Conn) {
 	for {
 		//set timeout
 		conn.SetReadDeadline(time.Now().Add(config.readDeadline))
-		_,payload,err:=conn.ReadMessage()
+		_, payload, err := conn.ReadMessage()
 		if err != nil {
 			log.Error(err)
 			return
