@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+service ChatService {
+    // 透传消息, 双向流
+    rpc Stream(stream Chat.Frame) returns (stream Chat.Frame);
+}
+
+message Chat {
+    enum FrameType {
+        Ping = 0;	// for testing
+        Message = 1;
+        Kick = 2;
+
+    }
+    message Frame {
+        FrameType Type=1;
+        bytes Message=2;
+    }
+}
