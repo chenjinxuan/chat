@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/LoginPage.dart';
+import 'package:flutter_app/main_look.dart';
 import 'package:flutter_app/understructure/app_ws.dart';
 
 void main() => runApp(new MyApp());
@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(home: new LoginPage());
+    return new MaterialApp(
+      home: new MainLook(),
+    );
   }
 }
