@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
         new Padding(
           padding: new EdgeInsets.fromLTRB(
               leftRightPadding, 50.0, leftRightPadding, 10.0),
-          child: new Image.asset(LOGO),
+//          child: new Image.asset(LOGO),
         ),
         new Padding(
           padding: new EdgeInsets.fromLTRB(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/contacts.dart';
+import 'package:flutter_app/components/contact.dart';
 import 'package:flutter_app/components/login_page.dart';
+import 'package:flutter_app/components/talk_session.dart';
 
 class MainLook extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class MainLook extends StatefulWidget {
   }
 }
 
-class _MainLook extends State {
+class _MainLook extends State<MainLook> {
   int _currentPageIndex = 0;
   var _pageController = new PageController(initialPage: 0);
 
@@ -29,7 +30,9 @@ class _MainLook extends State {
             case 0:
               return new LoginPage();
             case 1:
-              return new Contacts();
+              return new Contact();
+            case 2:
+              return new TalkSession();
           }
           return null;
         },
