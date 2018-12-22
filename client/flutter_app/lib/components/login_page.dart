@@ -17,8 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   var topBottomPadding = 4.0;
   var textTips = new TextStyle(fontSize: 16.0, color: Colors.black);
   var hintTips = new TextStyle(fontSize: 15.0, color: Colors.black26);
-  static const LOGO = "images/golang.png";
-
+  var enrollTips = "直接输入账号密码，如果不存在将提示是否进行注册";
   var _userPassController = new TextEditingController();
   var _userNameController = new TextEditingController();
 
@@ -28,9 +27,21 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
+        new Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            new IconButton(
+                padding: EdgeInsets.all(0.0),
+                iconSize: 40,
+                icon: new Icon(
+                  Icons.help,
+                ),
+                onPressed: () => {})
+          ],
+        ),
         new Padding(
           padding: new EdgeInsets.fromLTRB(
-              leftRightPadding, 50.0, leftRightPadding, 10.0),
+              leftRightPadding, 0.0, leftRightPadding, 10.0),
 //          child: new Image.asset(LOGO),
         ),
         new Padding(
