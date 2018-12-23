@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/image_zoomable.dart';
-
-String portrait =
-    "http://5b0988e595225.cdn.sohucs.com/images/20171121/ea654bd7837844ab83419d647ec5d373.jpeg";
+import 'package:flutter_app/data_controller/DataController.dart';
+import 'package:flutter_app/myui/image_zoomable.dart';
 
 Widget getHead(String imgUrl) {
   return new Container(
@@ -12,9 +10,9 @@ Widget getHead(String imgUrl) {
   );
 }
 
-Widget getMsg(context, String imgUrl) {
+Widget getMsg(context, String imgUrl, String txt) {
   Widget candidate;
-  if (imgUrl != "") {
+  if (imgUrl != null) {
     candidate = new Container(
       margin: const EdgeInsets.only(top: 5.0),
       child: new GestureDetector(
@@ -35,9 +33,9 @@ Widget getMsg(context, String imgUrl) {
         ),
       ),
     );
-  } else {
+  } else if (txt != null) {
     candidate = new Text(
-      "聊天内容123123123",
+      txt,
       style: Theme.of(context).textTheme.body2,
     );
   }
@@ -55,23 +53,23 @@ Widget getMsg(context, String imgUrl) {
 }
 
 Widget _sheSessionMsgState(
-    BuildContext context, String headImgUrl, String msgImgUrl) {
+    BuildContext context, String headImgUrl, String msgImgUrl, String txt) {
   return new Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         getHead(headImgUrl),
-        getMsg(context, msgImgUrl),
+        getMsg(context, msgImgUrl, txt),
       ]);
 }
 
 Widget _mySessionMsgState(
-    BuildContext context, String headImgUrl, String msgImgUrl) {
+    BuildContext context, String headImgUrl, String msgImgUrl, String txt) {
   return new Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        getMsg(context, msgImgUrl),
+        getMsg(context, msgImgUrl, txt),
         getHead(headImgUrl),
       ]);
 }
@@ -86,6 +84,7 @@ class TalkSession extends StatefulWidget {
 
 class _TalkSession extends State<TalkSession> {
   ScrollController scrollController = new ScrollController();
+  DataController dataController = new DataController();
 
   Widget getButton() {
     return Row(
@@ -103,10 +102,13 @@ class _TalkSession extends State<TalkSession> {
   Widget getMsgListView() {
     return new ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        if (index % 2 == 0) {
-          return _sheSessionMsgState(context, portrait, portrait);
-        } else {
-          return _mySessionMsgState(context, portrait, "");
+        var c = dataController.retTalkMsgItem(index);
+        if (c != null) {
+          if (c.left) {
+            return _sheSessionMsgState(context, c.head, c.msgUrl, null);
+          } else {
+            return _mySessionMsgState(context, c.head, null, c.txt);
+          }
         }
       },
       itemCount: 10,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/contact.dart';
-import 'package:flutter_app/components/login_page.dart';
-import 'package:flutter_app/components/talk_session.dart';
+import 'package:flutter_app/myui/contact.dart';
+import 'package:flutter_app/myui/login_page.dart';
+import 'package:flutter_app/myui/talk_session.dart';
+import 'package:flutter_app/data_format/data_format_class.dart';
 
 void main() => runApp(new MyApp());
 
@@ -34,6 +35,20 @@ class _MainLook extends State<MainLook> {
         title:
             new Text("爱学习专用信息传递装置", style: new TextStyle(color: Colors.white)),
         iconTheme: new IconThemeData(color: Colors.white),
+        actions: <Widget>[
+          new PopupMenuButton<AppBarChoice>(
+            // overflow menu
+            onSelected: (index) => {},
+            itemBuilder: (BuildContext context) {
+              return choices.map((AppBarChoice choice) {
+                return new PopupMenuItem<AppBarChoice>(
+                  value: choice,
+                  child: new Text(choice.title),
+                );
+              }).toList();
+            },
+          ),
+        ],
       ),
       body: new PageView.builder(
         itemBuilder: (BuildContext context, int index) {
@@ -45,38 +60,13 @@ class _MainLook extends State<MainLook> {
             case 2:
               return new TalkSession();
           }
-          return null;
         },
         controller: _pageController,
         onPageChanged: _onPageChanged,
+        itemCount: listBottomBar.length,
       ),
       bottomNavigationBar: new BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.brightness_5),
-            title: new Title(
-              title: "",
-              child: new Text("登陆"),
-              color: Colors.blueAccent,
-            ),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.contact_mail),
-            title: new Title(
-              title: "",
-              child: new Text("联系人"),
-              color: Colors.amber,
-            ),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.history),
-            title: new Title(
-              title: "",
-              child: new Text("会话"),
-              color: Colors.amber,
-            ),
-          ),
-        ],
+        items: listBottomBar,
         onTap: onTap,
         currentIndex: _currentPageIndex,
       ),
@@ -99,3 +89,35 @@ class _MainLook extends State<MainLook> {
     });
   }
 }
+
+List<BottomNavigationBarItem> listBottomBar = [
+  new BottomNavigationBarItem(
+    icon: new Icon(Icons.brightness_5),
+    title: new Title(
+      title: "",
+      child: new Text("登陆"),
+      color: Colors.blueAccent,
+    ),
+  ),
+  new BottomNavigationBarItem(
+    icon: new Icon(Icons.contact_mail),
+    title: new Title(
+      title: "",
+      child: new Text("联系人"),
+      color: Colors.amber,
+    ),
+  ),
+  new BottomNavigationBarItem(
+    icon: new Icon(Icons.history),
+    title: new Title(
+      title: "",
+      child: new Text("会话"),
+      color: Colors.amber,
+    ),
+  ),
+];
+
+const List<AppBarChoice> choices = const <AppBarChoice>[
+  const AppBarChoice(title: '加好友', icon: Icons.directions_car),
+  const AppBarChoice(title: '待添加', icon: Icons.directions_bike),
+];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data_controller/DataController.dart';
 
 class Contact extends StatefulWidget {
   @override
@@ -9,19 +10,25 @@ class Contact extends StatefulWidget {
 }
 
 class _Contact extends State<Contact> {
+  DataController dataController = new DataController();
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(itemBuilder: (context, index) {
+      var c = dataController.retContactsItem(index);
+      if (c == null) {
+        return null;
+      }
       return new ListTile(
         leading: Image.network(
-          "http://5b0988e595225.cdn.sohucs.com/images/20171121/ea654bd7837844ab83419d647ec5d373.jpeg",
+          c.leadingImageUrl,
           width: 50.0,
           height: 50.0,
           fit: BoxFit.cover,
         ),
-        title: new Text("班主任"),
-        subtitle: new Text("你高考考了满分你知道吗？"),
-        trailing: new Text("9:00"),
+        title: new Text(c.title),
+        subtitle: new Text(c.subtitle),
+        trailing: new Text(c.trailing),
       );
     });
   }

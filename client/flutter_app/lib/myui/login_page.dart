@@ -36,7 +36,14 @@ class _LoginPageState extends State<LoginPage> {
                 icon: new Icon(
                   Icons.help,
                 ),
-                onPressed: () => {})
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return new MyExplainDialog();
+                    },
+                  );
+                })
           ],
         ),
         new Padding(
@@ -85,6 +92,27 @@ class _LoginPageState extends State<LoginPage> {
                 )),
           ),
         )
+      ],
+    );
+  }
+}
+
+class MyExplainDialog extends StatelessWidget {
+  String s1 = "直接输入账号密码进行登陆，如果该账号未被注册，则会提示注册。";
+  var s2 = String.fromCharCode(0x1f600);
+  var f;
+  MyExplainDialog(){
+    f = s1 + s2;
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new SimpleDialog(
+      title: new Text("说明"),
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: new Text(f),
+        ),
       ],
     );
   }

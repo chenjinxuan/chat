@@ -1,15 +1,14 @@
 import 'dart:io';
 
-import 'package:flutter_app/config.dart';
-
 class AppWs {
   WebSocket socket;
-
-  AppWs() {
-    connect();
+  String wsUrl;
+  AppWs(String wsUrl) {
+    this.wsUrl = wsUrl;
+    connect(this.wsUrl);
   }
 
-  connect() {
+  connect(String wsUrl) {
     WebSocket.connect(wsUrl).then((socket) {
       this.socket = socket;
       socket.listen((data) {
@@ -23,7 +22,7 @@ class AppWs {
 
   //当与服务器连接中断调用
   connectError(e) {
-    print("connectError:$e");
+    print("connectError:$e:url:" + this.wsUrl);
   }
 
   // 发送消息失败时该方法才会触发
@@ -32,7 +31,7 @@ class AppWs {
   }
 
   reconnect(data) {
-    connect();
+    connect(this.wsUrl);
   }
 
   //该方法接收服务器信息
