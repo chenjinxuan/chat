@@ -86,6 +86,21 @@ class _TalkSession extends State<TalkSession> {
   ScrollController scrollController = new ScrollController();
   DataController dataController = new DataController();
 
+  @override
+  Widget build(BuildContext context) {
+    return new Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        // 一个暂时没用到的按钮
+//        getButton(),
+        new Flexible(
+          child: getMsgListView(),
+        ),
+        getInputArea(),
+      ],
+    );
+  }
+
   Widget getButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -115,7 +130,10 @@ class _TalkSession extends State<TalkSession> {
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.all(6.0),
       controller: scrollController,
+      reverse: true,
+      shrinkWrap: true,
     );
+
   }
 
   Widget getInputArea() {
@@ -134,25 +152,13 @@ class _TalkSession extends State<TalkSession> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return new Column(
-      children: <Widget>[
-        getButton(),
-        new Flexible(
-          child: getMsgListView(),
-        ),
-        getInputArea(),
-      ],
-    );
-  }
-
   void goToEnd() {
-    // todo 跳转到最后一条聊天记录还不知道怎么做
-    scrollController.animateTo(
-      10000.0,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
+    throw Error();
+//    scrollController.animateTo(
+//      10000.0,
+//      duration: const Duration(milliseconds: 300),
+//      curve: Curves.easeOut,
+//    );
+//    scrollController.jumpTo(10000.0);
   }
 }

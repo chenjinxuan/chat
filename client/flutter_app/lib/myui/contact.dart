@@ -4,7 +4,6 @@ import 'package:flutter_app/data_controller/DataController.dart';
 class Contact extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new _Contact();
   }
 }

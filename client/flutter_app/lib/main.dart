@@ -74,11 +74,12 @@ class _MainLook extends State<MainLook> {
   }
 
   onTap(int index) {
-    _pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.ease,
-    );
+//    _pageController.animateToPage(
+//      index,
+//      duration: const Duration(milliseconds: 300),
+//      curve: Curves.ease,
+//    );
+    _pageController.jumpToPage(index);
   }
 
   _onPageChanged(int index) {

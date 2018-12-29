@@ -24,16 +24,17 @@ class ContactPeopleItem {
 }
 
 class TalkMsgItem {
-  bool left;
-  String head;
-  String msgUrl;
-  String txt;
-
+  bool left;  // 是否靠左显示
+  String head; // 头像url
+  String msgUrl; // 消息图片url
+  String txt; // 消息内容
+  int saveTime; // 服务器消息入库的时间戳
   TalkMsgItem({
     @required this.left,
     this.head,
     this.msgUrl,
     this.txt,
+    @required this.saveTime
   });
 }
 
