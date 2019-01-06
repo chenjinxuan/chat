@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data_controller/DataController.dart';
+import 'package:flutter_app/data_controller/data_controller.dart';
 import 'package:flutter_app/myui/image_zoomable.dart';
 
 Widget getHead(String imgUrl) {

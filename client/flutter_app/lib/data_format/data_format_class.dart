@@ -37,10 +37,13 @@ class TalkMsgItem {
     @required this.saveTime
   });
 }
-
+enum AppBarChoiceEnum{
+  addFriend,
+  other,
+}
 class AppBarChoice {
-  const AppBarChoice({this.title, this.icon});
-
+  const AppBarChoice({this.buttonType, this.title, this.icon});
+  final AppBarChoiceEnum buttonType;
   final String title;
   final IconData icon;
 }

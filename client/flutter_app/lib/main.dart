@@ -38,7 +38,7 @@ class _MainLook extends State<MainLook> {
         actions: <Widget>[
           new PopupMenuButton<AppBarChoice>(
             // overflow menu
-            onSelected: (index) => {},
+            onSelected: _onAppBarSelected,
             itemBuilder: (BuildContext context) {
               return choices.map((AppBarChoice choice) {
                 return new PopupMenuItem<AppBarChoice>(
@@ -67,13 +67,13 @@ class _MainLook extends State<MainLook> {
       ),
       bottomNavigationBar: new BottomNavigationBar(
         items: listBottomBar,
-        onTap: onTap,
+        onTap: bottomBarOnTap,
         currentIndex: _currentPageIndex,
       ),
     );
   }
 
-  onTap(int index) {
+  bottomBarOnTap(int index) {
 //    _pageController.animateToPage(
 //      index,
 //      duration: const Duration(milliseconds: 300),
@@ -88,6 +88,13 @@ class _MainLook extends State<MainLook> {
         _currentPageIndex = index;
       }
     });
+  }
+
+  // 加好友跳转功能
+  _onAppBarSelected(AppBarChoice item) {
+    if(item.buttonType == AppBarChoiceEnum.addFriend){
+      // todo
+    };
   }
 }
 
@@ -119,6 +126,12 @@ List<BottomNavigationBarItem> listBottomBar = [
 ];
 
 const List<AppBarChoice> choices = const <AppBarChoice>[
-  const AppBarChoice(title: '加好友', icon: Icons.directions_car),
-  const AppBarChoice(title: '待添加', icon: Icons.directions_bike),
+  const AppBarChoice(
+      buttonType: AppBarChoiceEnum.addFriend,
+      title: '加好友',
+      icon: Icons.directions_car),
+  const AppBarChoice(
+      buttonType: AppBarChoiceEnum.other,
+      title: '待添加',
+      icon: Icons.directions_bike),
 ];
