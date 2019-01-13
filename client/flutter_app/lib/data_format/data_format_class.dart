@@ -37,8 +37,9 @@ class TalkMsgItem {
     @required this.saveTime
   });
 }
+
 enum AppBarChoiceEnum{
-  addFriend,
+  addFriendAndGroup,
   other,
 }
 class AppBarChoice {

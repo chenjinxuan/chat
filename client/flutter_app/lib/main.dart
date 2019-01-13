@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/myui/add_friend_and_group.dart';
 import 'package:flutter_app/myui/contact.dart';
 import 'package:flutter_app/myui/login_page.dart';
 import 'package:flutter_app/myui/talk_session.dart';
@@ -73,6 +74,7 @@ class _MainLook extends State<MainLook> {
     );
   }
 
+  // 点击下方三个按钮进行跳转
   bottomBarOnTap(int index) {
 //    _pageController.animateToPage(
 //      index,
@@ -90,11 +92,16 @@ class _MainLook extends State<MainLook> {
     });
   }
 
-  // 加好友跳转功能
+  // 跳转到加好友和加群界面
   _onAppBarSelected(AppBarChoice item) {
-    if(item.buttonType == AppBarChoiceEnum.addFriend){
-      // todo
-    };
+    if (item.buttonType == AppBarChoiceEnum.addFriendAndGroup) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return new AddFriendAndGroup();
+        },
+      );
+    }
   }
 }
 
@@ -127,8 +134,8 @@ List<BottomNavigationBarItem> listBottomBar = [
 
 const List<AppBarChoice> choices = const <AppBarChoice>[
   const AppBarChoice(
-      buttonType: AppBarChoiceEnum.addFriend,
-      title: '加好友',
+      buttonType: AppBarChoiceEnum.addFriendAndGroup,
+      title: '加群加好友',
       icon: Icons.directions_car),
   const AppBarChoice(
       buttonType: AppBarChoiceEnum.other,
