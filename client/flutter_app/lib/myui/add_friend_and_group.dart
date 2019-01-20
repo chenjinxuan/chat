@@ -14,36 +14,37 @@ class _AddFriendAndGroup extends State {
   Widget build(BuildContext context) {
     return new SimpleDialog(
       title: Center(child: new Text("欢迎")),
+      contentPadding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
       children: <Widget>[
-        Container(
-          height: 300,
-          width: 350,
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                child: new TextField(
-                  controller: textEditingController,
-                ),
+        Column(
+          children: <Widget>[
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Flexible(
+                  child: new TextField(
+                    controller: textEditingController,
+                  ),
 //                flex: 3,
-              ),
-              Flexible(
-                child: new RaisedButton(
-                  onPressed: () => this.findFriendOrGroup(),
-                  child: new Text("清除"),
                 ),
-//                flex: 1,
-              ),
-              Flexible(
-                child: new RaisedButton(
+                new RaisedButton(
+                  onPressed: () => this.findFriendOrGroup(),
+                  child: new Icon(Icons.clear),
+                  shape: CircleBorder(),
+                  color: Colors.blue,
+                ),
+                new RaisedButton(
                   onPressed: () => this.findFriendOrGroup(),
                   child: new Text("搜索"),
                 ),
-//                flex: 1,
-              ),
-            ],
-          ),
+              ],
+            ),
+            Container(
+              height: 400.0,
+            ),
+          ],
         ),
       ],
     );

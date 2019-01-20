@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/enum.dart';
 import 'package:flutter_app/myui/add_friend_and_group.dart';
 import 'package:flutter_app/myui/contact.dart';
 import 'package:flutter_app/myui/login_page.dart';
@@ -28,6 +29,7 @@ class MainLook extends StatefulWidget {
 class _MainLook extends State<MainLook> {
   int _currentPageIndex = 0;
   var _pageController = new PageController(initialPage: 0);
+  Contact _contact = new Contact();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class _MainLook extends State<MainLook> {
             case 0:
               return new LoginPage();
             case 1:
-              return new Contact();
+              return _contact;
             case 2:
               return new TalkSession();
           }
@@ -84,23 +86,31 @@ class _MainLook extends State<MainLook> {
     _pageController.jumpToPage(index);
   }
 
+  // ignore: slash_for_doc_comments
+  /**
+   * 每次切页面自动刷当前页面的所有控件
+   * */
   _onPageChanged(int index) {
-    setState(() {
-      if (index != _currentPageIndex) {
+    if (index != _currentPageIndex) {
+      setState(() {
         _currentPageIndex = index;
-      }
-    });
+      });
+    }
   }
 
   // 跳转到加好友和加群界面
   _onAppBarSelected(AppBarChoice item) {
     if (item.buttonType == AppBarChoiceEnum.addFriendAndGroup) {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return new AddFriendAndGroup();
-        },
-      );
+      _pageController.jumpToPage(ContactPeoplePageIndex);
+      if (_currentPageIndex == ContactPeoplePageIndex) {
+        _contact.showSearchBar();
+      }
+//      showDialog(
+//        context: context,
+//        builder: (context) {
+//          return new AddFriendAndGroup();
+//        },
+//      );
     }
   }
 }
