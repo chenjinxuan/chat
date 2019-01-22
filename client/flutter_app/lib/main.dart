@@ -101,16 +101,11 @@ class _MainLook extends State<MainLook> {
   // 跳转到加好友和加群界面
   _onAppBarSelected(AppBarChoice item) {
     if (item.buttonType == AppBarChoiceEnum.addFriendAndGroup) {
-      _pageController.jumpToPage(ContactPeoplePageIndex);
-      if (_currentPageIndex == ContactPeoplePageIndex) {
-        _contact.showSearchBar();
-      }
-//      showDialog(
-//        context: context,
-//        builder: (context) {
-//          return new AddFriendAndGroup();
-//        },
-//      );
+      Navigator.push(context,new MaterialPageRoute(
+            builder: (BuildContext context) {
+                return new AddFriendAndGroup();
+             },
+         ),);
     }
   }
 }
