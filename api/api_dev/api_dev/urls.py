@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from api_dev.views import find_user, add_user
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('find-user/<int:user_id>', find_user),
+path('add-user/<int:user_id>', add_user),
+path('agree-add-friend-request/<int:user_id>', agree_add_friend_request),
+
 ]
