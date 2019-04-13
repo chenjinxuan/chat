@@ -1,0 +1,2 @@
+// 安装 go-sql-driver 数据库驱动
+go get -u github.com/go-sql-driver/mysql

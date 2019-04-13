@@ -1,5 +1,6 @@
 package main
 
+import "./data"
 import (
 	"encoding/json"
 	"fmt"
@@ -21,7 +22,7 @@ func (this *MainController) Get() {
 	subID, _ := strconv.Atoi(this.Ctx.Input.Param(":subID"))
 
 	ret := msgPack{MainID: mainID, SubID: subID}
-	ret.Args= DealMainID(mainID, subID)
+	ret.Args = DealMainID(mainID, subID)
 
 	data, err := json.Marshal(ret)
 	if err != nil {
@@ -45,6 +46,9 @@ func DealSubID(subID int) interface{} {
 }
 
 func main() {
+	data.RegisterDB();
 	beego.Router("/?:mainID([0-9]+)/?:subID([0-9]+)", &MainController{})
 	beego.Run()
+
+
 }
