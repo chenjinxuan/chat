@@ -24,7 +24,6 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -59,3 +58,4 @@ buck-out/
 package-lock.json
 ./lib
 __tests__
+/lib/

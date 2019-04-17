@@ -3,7 +3,8 @@
  */
 
 import {AppRegistry} from 'react-native';
-import Demo from "./lib/src/demo";
+// import Main from "./lib/src/Main";
+import {ImuiComponent as Main} from "./src/imuiComponent"
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Demo);
+AppRegistry.registerComponent(appName, () => Main);
