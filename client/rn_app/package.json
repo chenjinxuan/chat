@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native run-android",
     "tsx": "./node_modules/.bin/tsc",
     "test": "jest"
   },
   "dependencies": {
-    "aurora-imui-react-native": "^0.14.0",
     "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react-native": "0.59.4",
+    "react-native-elements": "^1.1.0",
+    "react-native-vector-icons": "^6.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
