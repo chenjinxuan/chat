@@ -3,11 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native run-android",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "compile": "react-native run-android",
+    "linkIcon": "react-native link react-native-vector-icons",
+    "linkImui": "react-native link aurora-imui-react-native",
     "tsx": "./node_modules/.bin/tsc",
-    "test": "jest"
+    "test": "jest",
+    "showLog": "react-native log-android"
   },
   "dependencies": {
+    "aurora-imui-react-native": "^0.14.0",
     "react": "16.8.3",
     "react-native": "0.59.4",
     "react-native-elements": "^1.1.0",
@@ -18,6 +23,8 @@
     "@babel/runtime": "^7.4.3",
     "@types/react": "^16.8.13",
     "@types/react-native": "^0.57.43",
+    "@types/react-native-vector-icons": "^6.4.0",
+    "watchman": "^1.0.0",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
