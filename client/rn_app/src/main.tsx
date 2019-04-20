@@ -1,5 +1,8 @@
 import * as React from 'react';
 import {Login} from "./ui/login";
+import {FriendList} from "./ui/friend_list";
+import {View} from "react-native";
+import {TalkSession} from "./ui/talk_session";
 
 
 export default class Main extends React.Component {
@@ -11,7 +14,11 @@ export default class Main extends React.Component {
 
     render(): React.ReactNode {
         return (
-            <Login/>
+            <View>
+                {/*<Login/>*/}
+                {/*<FriendList/>*/}
+                <TalkSession />
+            </View>
         );
     }
 
