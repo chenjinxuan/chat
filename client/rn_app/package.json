@@ -7,29 +7,29 @@
     "compile": "react-native run-android",
     "linkIcon": "react-native link react-native-vector-icons",
     "linkImui": "react-native link aurora-imui-react-native",
+    "linkRnFs": "react-native link react-native-fs",
     "tsx": "./node_modules/.bin/tsc",
     "test": "jest",
     "showLog": "react-native log-android"
   },
   "dependencies": {
-    "aurora-imui-react-native": "^0.14.0",
-    "react": "16.8.3",
-    "react-native": "0.59.4",
-    "react-native-elements": "^1.1.0",
-    "react-native-vector-icons": "^6.4.2"
+    "react-native-elements": "^1.0.0-beta8",
+    "react-native-vector-icons": "^6.4.2",
+    "aurora-imui-react-native": "^0.13.1",
+    "react": "^16.0.0",
+    "react-native": "^0.53.3",
+    "react-native-fs": "^2.8.5",
+    "react-native-material-ui": "^1.30.1",
+    "react-native-popup-dialog": "^0.7.29",
+    "react-navigation": "^1.5.0",
+    "react-timer-mixin": "^0.13.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/runtime": "^7.4.3",
-    "@types/react": "^16.8.13",
-    "@types/react-native": "^0.57.43",
-    "@types/react-native-vector-icons": "^6.4.0",
     "watchman": "^1.0.0",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3",
-    "typescript": "^3.4.3"
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native"
