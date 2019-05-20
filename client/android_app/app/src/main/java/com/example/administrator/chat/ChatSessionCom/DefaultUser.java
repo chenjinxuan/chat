@@ -1,4 +1,4 @@
-package com.example.administrator.chat;
+package com.example.administrator.chat.ChatSessionCom;
 
 
 import cn.jiguang.imui.commons.models.IUser;

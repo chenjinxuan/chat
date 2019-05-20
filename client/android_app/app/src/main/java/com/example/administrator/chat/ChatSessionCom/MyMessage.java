@@ -1,6 +1,4 @@
-package com.example.administrator.chat;
-
-import android.app.Notification;
+package com.example.administrator.chat.ChatSessionCom;
 
 import java.util.HashMap;
 import java.util.UUID;
