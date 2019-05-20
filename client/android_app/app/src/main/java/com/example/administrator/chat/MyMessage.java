@@ -9,20 +9,15 @@ import cn.jiguang.imui.commons.models.IMessage;
 import cn.jiguang.imui.commons.models.IUser;
 
 public class MyMessage implements IMessage {
-
     private long id;
     private String text;
     private String timeString;
-    private MessageType type;
+    private int type;
     private IUser user;
-    private String mediaFilePath;
+    private String contentFile;
     private long duration;
-    private String progress;
-    private Notification.MessagingStyle.Message message;
-    private int position;
-    private long msgID;
 
-    public MyMessage(String text, MessageType type) {
+    public MyMessage(String text, int type) {
         this.text = text;
         this.type = type;
         this.id = UUID.randomUUID().getLeastSignificantBits();
@@ -30,42 +25,32 @@ public class MyMessage implements IMessage {
 
     @Override
     public String getMsgId() {
-        return null;
+        return String.valueOf(id);
     }
 
     @Override
     public IUser getFromUser() {
-        return null;
+        if (user == null) {
+            return new DefaultUser("0", "user1", null);
+        }
+        return user;
     }
 
-    @Override
-    public String getTimeString() {
-        return null;
+    public void setUserInfo(IUser user) {
+        this.user = user;
     }
 
-    @Override
-    public int getType() {
-        return 0;
+    public void setMediaFilePath(String path) {
+        this.contentFile = path;
     }
 
-    @Override
-    public MessageStatus getMessageStatus() {
-        return null;
-    }
-
-    @Override
-    public String getText() {
-        return null;
-    }
-
-    @Override
-    public String getMediaFilePath() {
-        return null;
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 
     @Override
     public long getDuration() {
-        return 0;
+        return duration;
     }
 
     @Override
@@ -76,5 +61,34 @@ public class MyMessage implements IMessage {
     @Override
     public HashMap<String, String> getExtras() {
         return null;
+    }
+
+    public void setTimeString(String timeString) {
+        this.timeString = timeString;
+    }
+
+    @Override
+    public String getTimeString() {
+        return timeString;
+    }
+
+    @Override
+    public int getType() {
+        return type;
+    }
+
+    @Override
+    public MessageStatus getMessageStatus() {
+        return null;
+    }
+
+    @Override
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public String getMediaFilePath() {
+        return contentFile;
     }
 }

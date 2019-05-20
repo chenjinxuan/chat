@@ -45,7 +45,8 @@ public class ChatSession extends AppCompatActivity {
         };
         adapter = new MsgListAdapter<MyMessage>("0", imageLoader);
         messageList.setAdapter(adapter);
-        MyMessage myMessage = new MyMessage("hello,world", IMessage.MessageType.RECEIVE_TEXT);
+        MyMessage myMessage = new MyMessage("hello,worldsdfsdfsdfsdf李厚霖压顶无可奈何花落去李厚霖" +
+                "李厚霖压顶无可奈何花落去李厚霖压顶无可奈何花落去大规模 李厚霖压顶地李厚霖压顶地", 0);
         adapter.addToStart(myMessage, true);
         adapter.addToStart(myMessage, true);
         adapter.addToStart(myMessage, true);

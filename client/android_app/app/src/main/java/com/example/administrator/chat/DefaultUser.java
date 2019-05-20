@@ -5,7 +5,7 @@ import cn.jiguang.imui.commons.models.IUser;
 
 public class DefaultUser implements IUser {
 
-    private String id;
+       private String id;
     private String displayName;
     private String avatar;
 
@@ -17,16 +17,16 @@ public class DefaultUser implements IUser {
 
     @Override
     public String getId() {
-        return null;
+        return id;
     }
 
     @Override
     public String getDisplayName() {
-        return null;
+        return displayName;
     }
 
     @Override
     public String getAvatarFilePath() {
-        return null;
+        return avatar;
     }
 }
