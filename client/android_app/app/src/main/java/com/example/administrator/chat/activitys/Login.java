@@ -15,7 +15,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Button button = findViewById(R.id.loginButton);
-        final Intent intent = new Intent(this, ChatSession.class);
+        final Intent intent = new Intent(this, Home.class);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

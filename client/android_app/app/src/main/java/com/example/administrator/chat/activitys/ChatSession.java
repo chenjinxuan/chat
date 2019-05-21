@@ -33,4 +33,9 @@ public class ChatSession extends AppCompatActivity {
         adapter.addToStart(myMessage, true);
         adapter.addToStart(myMessage, true);
     }
+
+    @Override
+    public void onBackPressed() {
+        // 禁用默认回退效果
+    }
 }

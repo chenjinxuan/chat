@@ -4,4 +4,5 @@
     <string name="passoword">密码:</string>
     <string name="register">注册</string>
     <string name="login">登陆</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
